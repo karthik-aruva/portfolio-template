@@ -2,15 +2,430 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Developer Portfolio - Glassmorphic Aesthetic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Aruva - Premium Developer Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --card-hover-border: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --glass-blur: blur(24px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Ambient glow background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0, 0, 0, 0) 75%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            right: -20%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, rgba(0, 0, 0, 0) 75%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .back-nav {
+            margin-bottom: 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .back-nav:hover {
+            color: var(--text-primary);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff, #00f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-bottom: 6rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+            color: black;
+            border: none;
+            padding: 0.95rem 2rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 240, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.02);
+            color: white;
+            border: 1px solid var(--card-border);
+            padding: 0.95rem 2rem;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--card-hover-border);
+        }
+
+        /* Section Layouts */
+        section {
+            margin-bottom: 6rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        /* Skills Filter */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 4rem;
+        }
+
+        .skill-tag {
+            padding: 0.65rem 1.25rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-cyan);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+        }
+
+        /* Contact Panel Form */
+        .contact-form-card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--card-border);
+            color: white;
+            padding: 0.85rem 1.15rem;
+            border-radius: 12px;
+            outline: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-cyan);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+            color: black;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--accent-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            transform: translateY(120%);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 10000;
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body style="background: #000; color: #fff; font-family: sans-serif; padding: 50px;">
-    <header style="display: flex; justify-content: space-between;">
-        <h2>Jane Dev</h2>
-        <nav><a href="#" style="color: #00f0ff; margin-left: 20px;">Work</a><a href="#" style="color: #00f0ff; margin-left: 20px;">Contact</a></nav>
-    </header>
-    <main style="margin-top: 100px;">
-        <h1 style="font-size: 4rem; background: linear-gradient(to right, #fff, #00f0ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Crafting digital experiences.</h1>
-    </main>
+<body>
+    <div class="container">
+        <a href="/" class="back-nav">
+            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to Launchpad
+        </a>
+
+        <header>
+            <div class="logo">Jane Dev</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <main class="hero">
+            <h1>Crafting premium web applications & <span>Aesthetic Interfaces</span>.</h1>
+            <p>I build fully interactive frontend products, automated tooling modules, and visual templates engineered for efficiency and gorgeous user experiences.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Initiate Contact</a>
+                <a href="#skills" class="btn-secondary">Explore Stack</a>
+            </div>
+        </main>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <h2><i data-lucide="cpu" style="color: var(--accent-cyan);"></i> Core Technology Stack</h2>
+                <p>Curated libraries, paradigms, and stacks utilized in production pipelines.</p>
+            </div>
+
+            <div class="skills-grid">
+                <span class="skill-tag">HTML5 / Vanilla CSS3</span>
+                <span class="skill-tag">ES6+ JavaScript</span>
+                <span class="skill-tag">Python (CLI, REST APIs)</span>
+                <span class="skill-tag">FastAPI / Flask</span>
+                <span class="skill-tag">Web Scraping (BS4, Selenium)</span>
+                <span class="skill-tag">Git Version Control</span>
+                <span class="skill-tag">API Automation & Integrations</span>
+                <span class="skill-tag">Glassmorphic UI Design</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header" style="text-align: center;">
+                <h2><i data-lucide="mail" style="color: var(--accent-purple);"></i> Let's Build Something Special</h2>
+                <p>Interested in collaboration or custom layouts? Reach out using the vault below.</p>
+            </div>
+
+            <form class="contact-form-card" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label class="form-label" for="contact-name">Your Name</label>
+                    <input class="form-input" type="text" id="contact-name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-email">Email Address</label>
+                    <input class="form-input" type="email" id="contact-email" required placeholder="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-message">Message Details</label>
+                    <textarea class="form-input form-textarea" id="contact-message" required placeholder="Hi Jane! I loved your portfolio template..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit Message</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-notification" id="form-toast">
+        📬 Message sent successfully! Jane will get back to you shortly.
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+
+        function submitForm(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById("contact-name").value.trim();
+            const email = document.getElementById("contact-email").value.trim();
+            const msg = document.getElementById("contact-message").value.trim();
+
+            if (!name || !email || !msg) return;
+
+            // Trigger success toast
+            const toast = document.getElementById("form-toast");
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 4000);
+
+            // Clear inputs
+            document.getElementById("contact-name").value = "";
+            document.getElementById("contact-email").value = "";
+            document.getElementById("contact-message").value = "";
+        }
+    </script>
 </body>
 </html>
