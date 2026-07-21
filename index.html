@@ -3,429 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karthik Aruva - Premium Developer Portfolio</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Karthik Aruva — Full-Stack Developer & Software Architect</title>
+
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Portfolio of Karthik Aruva — Full-Stack Developer, UI/UX Craftsman, and Automation Engineer building glassmorphic web apps and high-performance tools.">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --bg-dark: #000000;
-            --card-bg: rgba(255, 255, 255, 0.02);
-            --card-border: rgba(255, 255, 255, 0.05);
-            --card-hover-border: rgba(255, 255, 255, 0.15);
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --text-muted: #475569;
-            --accent-cyan: #00f0ff;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --glass-blur: blur(24px);
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            padding: 2.5rem 1.5rem;
-        }
-
-        /* Ambient glow background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -20%;
-            left: -20%;
-            width: 70%;
-            height: 70%;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0, 0, 0, 0) 75%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: -20%;
-            right: -20%;
-            width: 70%;
-            height: 70%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, rgba(0, 0, 0, 0) 75%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .back-nav {
-            margin-bottom: 2.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        .back-nav:hover {
-            color: var(--text-primary);
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5rem;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff, #00f0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-left: 2rem;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-bottom: 6rem;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            line-height: 1.6;
-            max-width: 650px;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
-            color: black;
-            border: none;
-            padding: 0.95rem 2rem;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.25);
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 240, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.02);
-            color: white;
-            border: 1px solid var(--card-border);
-            padding: 0.95rem 2rem;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: var(--card-hover-border);
-        }
-
-        /* Section Layouts */
-        section {
-            margin-bottom: 6rem;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-top: 6px;
-        }
-
-        /* Skills Filter */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 4rem;
-        }
-
-        .skill-tag {
-            padding: 0.65rem 1.25rem;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            border-color: var(--accent-cyan);
-            color: white;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-        }
-
-        /* Contact Panel Form */
-        .contact-form-card {
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--card-border);
-            border-radius: 28px;
-            padding: 2.5rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .form-input {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--card-border);
-            color: white;
-            padding: 0.85rem 1.15rem;
-            border-radius: 12px;
-            outline: none;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .form-input:focus {
-            border-color: var(--accent-cyan);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .form-textarea {
-            height: 120px;
-            resize: none;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
-            color: black;
-            border: none;
-            padding: 1rem;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
-        }
-
-        .btn-submit:hover {
-            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
-        }
-
-        .toast-notification {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: var(--accent-green);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-            transform: translateY(120%);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            z-index: 10000;
-        }
-
-        .toast-notification.show {
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <a href="/" class="back-nav">
-            <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to Launchpad
-        </a>
 
-        <header>
-            <div class="logo">Jane Dev</div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
+    <!-- Ambient Glowing Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-        <!-- Hero -->
-        <main class="hero">
-            <h1>Crafting premium web applications & <span>Aesthetic Interfaces</span>.</h1>
-            <p>I build fully interactive frontend products, automated tooling modules, and visual templates engineered for efficiency and gorgeous user experiences.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn-primary">Initiate Contact</a>
-                <a href="#skills" class="btn-secondary">Explore Stack</a>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-badge">KA</div>
+                <span>karthik<span>.dev</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills Matrix</a></li>
+                <li><a href="#terminal">CLI Terminal</a></li>
+                <li><a href="#contact" class="btn-contact-nav">Let's Connect</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="status-pill">
+                    <span class="pulse-dot"></span> Available for New Opportunities & Engineering Roles
+                </div>
+                <h1>Engineering <span class="gradient-text">Interactive Digital Systems</span> & Premium Experiences.</h1>
+                <p>Hello! I'm <strong>Karthik Aruva</strong>, a <span id="typed-text" style="color: var(--cyan); font-weight: 700;">Full-Stack Developer</span>. I build high-performance web applications, automated CLI utilities, and glassmorphic UI systems tailored for seamless UX.</p>
+                
+                <div class="hero-ctas">
+                    <a href="#projects" class="btn-hero-primary">
+                        <i data-lucide="sparkles" style="width: 18px; height: 18px;"></i> Explore Projects
+                    </a>
+                    <a href="#contact" class="btn-hero-secondary">
+                        <i data-lucide="mail" style="width: 18px; height: 18px;"></i> Get in Touch
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>12+</h3>
+                        <p>Live Repositories</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Clean Architecture</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Fast</h3>
+                        <p>Modern UI Stack</p>
+                    </div>
+                </div>
             </div>
-        </main>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <div class="section-header">
-                <h2><i data-lucide="cpu" style="color: var(--accent-cyan);"></i> Core Technology Stack</h2>
-                <p>Curated libraries, paradigms, and stacks utilized in production pipelines.</p>
+            <!-- 3D Interactive Code Window -->
+            <div class="hero-visual">
+                <div class="glass-card-3d">
+                    <div class="code-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="file-title">developer_profile.json</span>
+                    </div>
+                    <div class="code-body">
+                        <div><span class="token-keyword">const</span> developer = {</div>
+                        <div style="padding-left: 1.25rem;"><span class="token-property">name</span>: <span class="token-string">"Karthik Aruva"</span>,</div>
+                        <div style="padding-left: 1.25rem;"><span class="token-property">role</span>: <span class="token-string">"Full-Stack Software Engineer"</span>,</div>
+                        <div style="padding-left: 1.25rem;"><span class="token-property">location</span>: <span class="token-string">"Hyderabad, India"</span>,</div>
+                        <div style="padding-left: 1.25rem;"><span class="token-property">coreSkills</span>: [</div>
+                        <div style="padding-left: 2.5rem;"><span class="token-string">"JavaScript (ES6+)"</span>, <span class="token-string">"Python"</span>,</div>
+                        <div style="padding-left: 2.5rem;"><span class="token-string">"FastAPI"</span>, <span class="token-string">"Glassmorphism CSS3"</span>,</div>
+                        <div style="padding-left: 2.5rem;"><span class="token-string">"Git Automation"</span></div>
+                        <div style="padding-left: 1.25rem;">],</div>
+                        <div style="padding-left: 1.25rem;"><span class="token-property">status</span>: <span class="token-string">"Ready to Code 🚀"</span></div>
+                        <div>};</div>
+                    </div>
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="tech-float-badge badge-1">
+                    <i data-lucide="code" style="color: var(--cyan);"></i> Clean Code Architecture
+                </div>
+                <div class="tech-float-badge badge-2">
+                    <i data-lucide="layers" style="color: var(--purple);"></i> Glassmorphism UI
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title-box">
+                <span class="section-tag">// PORTFOLIO</span>
+                <h2 class="section-title">Featured Engineering Works</h2>
+                <p class="section-subtitle">A collection of live interactive web apps, algorithms, and backend utilities built from scratch.</p>
+            </div>
+
+            <!-- Project Category Filter -->
+            <div class="project-filter-bar">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Applications</button>
+                <button class="filter-btn" data-filter="api">REST APIs & CLI</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                
+                <!-- GO Bus -->
+                <div class="project-card" data-category="web">
+                    <div class="project-top">
+                        <div class="project-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--purple);">
+                            <i data-lucide="bus"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthik-aruva/group-bus-booking" target="_blank" class="icon-link" title="GitHub Source"><i data-lucide="github"></i></a>
+                            <a href="https://karthik-aruva.github.io/group-bus-booking/" target="_blank" class="icon-link" title="Live Application"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="project-title">GO Bus</h3>
+                        <p class="project-desc">Group ticket booking portal supporting multi-boarding/dropping cities, dynamic route timelines, and digital glass boarding passes.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5 / JS</span>
+                            <span class="tag">Glassmorphism</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                    </div>
+                    <a href="https://karthik-aruva.github.io/group-bus-booking/" target="_blank" class="btn-project-action">
+                        Launch Live App <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+                <!-- AuraHabit -->
+                <div class="project-card" data-category="web">
+                    <div class="project-top">
+                        <div class="project-icon" style="background: rgba(0, 240, 255, 0.15); color: var(--cyan);">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthik-aruva/habit-tracker" target="_blank" class="icon-link"><i data-lucide="github"></i></a>
+                            <a href="../habit-tracker/index.html" target="_blank" class="icon-link"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="project-title">AuraHabit</h3>
+                        <p class="project-desc">Habit tracker featuring Pomodoro timer, ambient sleep monitor, GPS route check-ins, and audio soundscapes.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">Audio API</span>
+                            <span class="tag">Interactive UI</span>
+                        </div>
+                    </div>
+                    <a href="../habit-tracker/index.html" target="_blank" class="btn-project-action">
+                        Launch Live App <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+                <!-- AuraFinance -->
+                <div class="project-card" data-category="web">
+                    <div class="project-top">
+                        <div class="project-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--emerald);">
+                            <i data-lucide="wallet"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthik-aruva/personal-finance-dashboard" target="_blank" class="icon-link"><i data-lucide="github"></i></a>
+                            <a href="../personal-finance-dashboard/index.html" target="_blank" class="icon-link"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="project-title">AuraFinance</h3>
+                        <p class="project-desc">Personal income and budget metrics visualizer layout template built with clean dark colors and charts.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                    </div>
+                    <a href="../personal-finance-dashboard/index.html" target="_blank" class="btn-project-action">
+                        Launch Live App <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+                <!-- AuraWeather -->
+                <div class="project-card" data-category="web">
+                    <div class="project-top">
+                        <div class="project-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--amber);">
+                            <i data-lucide="cloud-sun"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthik-aruva/weather-dashboard" target="_blank" class="icon-link"><i data-lucide="github"></i></a>
+                            <a href="../weather-dashboard/index.html" target="_blank" class="icon-link"><i data-lucide="external-link"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="project-title">AuraWeather</h3>
+                        <p class="project-desc">Glassmorphic weather widget application dashboard detailing live metrics, wind speeds, and atmospheric indicators.</p>
+                        <div class="project-tags">
+                            <span class="tag">Weather API</span>
+                            <span class="tag">Glassmorphic</span>
+                        </div>
+                    </div>
+                    <a href="../weather-dashboard/index.html" target="_blank" class="btn-project-action">
+                        Launch Live App <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+                <!-- Task Manager API -->
+                <div class="project-card" data-category="api">
+                    <div class="project-top">
+                        <div class="project-icon" style="background: rgba(59, 130, 246, 0.15); color: var(--blue);">
+                            <i data-lucide="server"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthik-aruva/task-manager-api" target="_blank" class="icon-link"><i data-lucide="github"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="project-title">Task Manager API</h3>
+                        <p class="project-desc">FastAPI mock backend server routing GET/POST requests for lightweight item logging with Pydantic validation.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/karthik-aruva/task-manager-api" target="_blank" class="btn-project-action">
+                        View Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+                <!-- URL Shortener API -->
+                <div class="project-card" data-category="api">
+                    <div class="project-top">
+                        <div class="project-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--pink);">
+                            <i data-lucide="link-2"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/karthik-aruva/url-shortener-api" target="_blank" class="icon-link"><i data-lucide="github"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="project-title">URL Shortener API</h3>
+                        <p class="project-desc">Lightweight SQLite3 Flask server routing shortened hash links and tracking click analytics.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">SQLite3</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/karthik-aruva/url-shortener-api" target="_blank" class="btn-project-action">
+                        View Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title-box">
+                <span class="section-tag">// COMPETENCIES</span>
+                <h2 class="section-title">Technical Skills Matrix</h2>
+                <p class="section-subtitle">Core proficiencies across modern frontend styling, backend API engineering, and dev tools.</p>
             </div>
 
             <div class="skills-grid">
-                <span class="skill-tag">HTML5 / Vanilla CSS3</span>
-                <span class="skill-tag">ES6+ JavaScript</span>
-                <span class="skill-tag">Python (CLI, REST APIs)</span>
-                <span class="skill-tag">FastAPI / Flask</span>
-                <span class="skill-tag">Web Scraping (BS4, Selenium)</span>
-                <span class="skill-tag">Git Version Control</span>
-                <span class="skill-tag">API Automation & Integrations</span>
-                <span class="skill-tag">Glassmorphic UI Design</span>
-            </div>
-        </section>
+                
+                <!-- Category 1 -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon"><i data-lucide="code"></i></div>
+                        <h4 class="category-title">Frontend Engineering</h4>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript (ES6+)</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML5 / Modern CSS3</span>
+                                <span class="skill-percent">98%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="98%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Glassmorphism & UX</span>
+                                <span class="skill-percent">92%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="92%"></div></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="section-header" style="text-align: center;">
-                <h2><i data-lucide="mail" style="color: var(--accent-purple);"></i> Let's Build Something Special</h2>
-                <p>Interested in collaboration or custom layouts? Reach out using the vault below.</p>
+                <!-- Category 2 -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon" style="background: rgba(139, 92, 246, 0.1); color: var(--purple);"><i data-lucide="terminal"></i></div>
+                        <h4 class="category-title">Backend & Automation</h4>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python Scripting</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">FastAPI / Flask</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Web Scraping (BS4)</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);"><i data-lucide="git-branch"></i></div>
+                        <h4 class="category-title">DevOps & Tools</h4>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git & GitHub Pages</span>
+                                <span class="skill-percent">94%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="94%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">REST APIs & JSON</span>
+                                <span class="skill-percent">96%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="96%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CLI Automation</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="bar-bg"><div class="bar-fill" data-width="90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Terminal Widget Section -->
+    <section class="section" id="terminal">
+        <div class="container">
+            <div class="section-title-box">
+                <span class="section-tag">// INTERACTIVE SHELL</span>
+                <h2 class="section-title">Developer Terminal</h2>
+                <p class="section-subtitle">Type commands like <code style="color:var(--cyan)">help</code>, <code style="color:var(--cyan)">whoami</code>, <code style="color:var(--cyan)">projects</code>, or <code style="color:var(--cyan)">skills</code> to interact live.</p>
             </div>
 
-            <form class="contact-form-card" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label class="form-label" for="contact-name">Your Name</label>
-                    <input class="form-input" type="text" id="contact-name" required placeholder="Jane Doe">
+            <div class="interactive-terminal-container">
+                <div class="terminal-window">
+                    <div class="terminal-top">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span>bash — karthik@portfolio: ~</span>
+                        <div style="width: 30px;"></div>
+                    </div>
+                    <div class="terminal-body" id="terminal-body">
+                        <div class="terminal-line">Welcome to Karthik's Interactive Portfolio Terminal! [v2.4.0]</div>
+                        <div class="terminal-line">Type <span style="color:var(--cyan)">help</span> to list available commands.</div>
+                        <div class="terminal-line" style="margin-top: 1rem;"><span class="terminal-prompt">karthik@portfolio:~$</span> whoami</div>
+                        <div class="terminal-line">Karthik Aruva — Full-Stack Developer & Software Architect.</div>
+                    </div>
+                    <div class="terminal-top" style="border-top: 1px solid var(--border-card); border-bottom: none;">
+                        <div class="terminal-input-row">
+                            <span class="terminal-prompt">karthik@portfolio:~$</span>
+                            <input type="text" class="terminal-input" id="terminal-input" placeholder="Type a command (e.g. help)..." autocomplete="off">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="contact-email">Email Address</label>
-                    <input class="form-input" type="email" id="contact-email" required placeholder="jane@example.com">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title-box">
+                <span class="section-tag">// GET IN TOUCH</span>
+                <h2 class="section-title">Initiate Collaboration</h2>
+                <p class="section-subtitle">Have a project or opportunity in mind? Send a message directly.</p>
+            </div>
+
+            <div class="contact-grid">
+                
+                <div class="contact-info-card">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem;">Contact Info</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="mail"></i></div>
+                        <div class="info-details">
+                            <h5>Email Address</h5>
+                            <p>karthik.aruva@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon" style="background: rgba(0, 240, 255, 0.1); color: var(--cyan);"><i data-lucide="github"></i></div>
+                        <div class="info-details">
+                            <h5>GitHub Profile</h5>
+                            <p>github.com/karthik-aruva</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);"><i data-lucide="map-pin"></i></div>
+                        <div class="info-details">
+                            <h5>Location</h5>
+                            <p>Hyderabad, India</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="contact-message">Message Details</label>
-                    <textarea class="form-input form-textarea" id="contact-message" required placeholder="Hi Jane! I loved your portfolio template..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Submit Message</button>
-            </form>
-        </section>
+
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="contact-name">Your Name</label>
+                        <input class="form-input" type="text" id="contact-name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="contact-email">Email Address</label>
+                        <input class="form-input" type="email" id="contact-email" required placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="contact-message">Message</label>
+                        <textarea class="form-input" id="contact-message" required placeholder="Hi Karthik! I'd love to work together..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-form">
+                        Send Message <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Karthik Aruva. Built with HTML5, Vanilla CSS3, & Modern JS.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast-success">
+        <i data-lucide="check-circle-2"></i> Message sent successfully! Karthik will get back to you soon.
     </div>
 
-    <!-- Notification Toast -->
-    <div class="toast-notification" id="form-toast">
-        📬 Message sent successfully! Jane will get back to you shortly.
-    </div>
-
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            if (window.lucide) {
-                window.lucide.createIcons();
-            }
-        });
-
-        function submitForm(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById("contact-name").value.trim();
-            const email = document.getElementById("contact-email").value.trim();
-            const msg = document.getElementById("contact-message").value.trim();
-
-            if (!name || !email || !msg) return;
-
-            // Trigger success toast
-            const toast = document.getElementById("form-toast");
-            toast.classList.add("show");
-
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 4000);
-
-            // Clear inputs
-            document.getElementById("contact-name").value = "";
-            document.getElementById("contact-email").value = "";
-            document.getElementById("contact-message").value = "";
-        }
-    </script>
+    <!-- Script -->
+    <script src="script.js"></script>
 </body>
 </html>
