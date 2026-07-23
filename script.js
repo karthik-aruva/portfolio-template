@@ -83,6 +83,93 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Project Preview Modal Logic
+    const modalOverlay = document.getElementById("project-modal");
+    const modalCloseBtn = document.getElementById("modal-close");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBadge = document.getElementById("modal-badge");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalIframe = document.getElementById("modal-iframe");
+    const modalFallback = document.getElementById("modal-fallback");
+    const modalFallbackText = document.getElementById("modal-fallback-text");
+    const modalTags = document.getElementById("modal-tags");
+    const modalGithubLink = document.getElementById("modal-github-link");
+    const modalLiveLink = document.getElementById("modal-live-link");
+
+    function openProjectModal(card) {
+        if (!modalOverlay || !card) return;
+
+        const title = card.getAttribute("data-title") || "Project Details";
+        const badge = card.getAttribute("data-badge") || "Application";
+        const desc = card.getAttribute("data-desc") || "";
+        const previewUrl = card.getAttribute("data-preview-url") || "";
+        const githubUrl = card.getAttribute("data-github-url") || "#";
+
+        modalTitle.textContent = title;
+        modalBadge.textContent = badge;
+        modalDesc.textContent = desc;
+
+        // Tags
+        modalTags.innerHTML = "";
+        const cardTags = card.querySelectorAll(".project-tags .tag");
+        cardTags.forEach(tag => {
+            const span = document.createElement("span");
+            span.className = "tag";
+            span.textContent = tag.textContent;
+            modalTags.appendChild(span);
+        });
+
+        // Action links
+        modalGithubLink.href = githubUrl;
+        if (previewUrl) {
+            modalLiveLink.style.display = "inline-flex";
+            modalLiveLink.href = previewUrl;
+            modalIframe.style.display = "block";
+            modalFallback.style.display = "none";
+            modalIframe.src = previewUrl;
+        } else {
+            modalLiveLink.style.display = "none";
+            modalIframe.style.display = "none";
+            modalIframe.src = "about:blank";
+            modalFallback.style.display = "flex";
+            modalFallbackText.textContent = `${title} is a backend utility / REST service. Source code available on GitHub.`;
+        }
+
+        modalOverlay.classList.add("show");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeProjectModal() {
+        if (!modalOverlay) return;
+        modalOverlay.classList.remove("show");
+        document.body.style.overflow = "auto";
+        if (modalIframe) modalIframe.src = "about:blank";
+    }
+
+    document.querySelectorAll(".btn-open-modal").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const card = btn.closest(".project-card");
+            openProjectModal(card);
+        });
+    });
+
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener("click", closeProjectModal);
+    }
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) closeProjectModal();
+        });
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modalOverlay && modalOverlay.classList.contains("show")) {
+            closeProjectModal();
+        }
+    });
+
     // Interactive Terminal Logic
     const termInput = document.getElementById("terminal-input");
     const termBody = document.getElementById("terminal-body");
